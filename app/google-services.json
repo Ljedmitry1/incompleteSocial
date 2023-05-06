@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1093871205820",
+    "project_id": "socialhelp-bc9a1",
+    "storage_bucket": "socialhelp-bc9a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093871205820:android:6ec413b43b1dfa88f2bfb9",
+        "android_client_info": {
+          "package_name": "com.example.socialhelpmvi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1093871205820-s0sgbd60j4r5cfi9m4kvac3b5rtmdlo2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcOhAbxeflu56_o1PlFnBVDLI0xvrEFTc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1093871205820-s0sgbd60j4r5cfi9m4kvac3b5rtmdlo2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
