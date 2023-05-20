@@ -17,6 +17,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.socialhelpmvi.presentation.navigation.Screen
+import com.example.socialhelpmvi.presentation.navigation.SetupNavGraph
 import com.example.socialhelpmvi.presentation.theme.Green
 import com.example.socialhelpmvi.presentation.theme.GreenGray
 import com.example.socialhelpmvi.presentation.theme.fonts
@@ -26,6 +27,9 @@ import com.google.firebase.database.DatabaseReference
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RegistrationItem(navController: NavController, modifier: Modifier, ref: DatabaseReference, auth: FirebaseAuth, context: Activity) {
+
+    val myRef = ref.child("users")
+
     var login by remember {
         mutableStateOf("")
     }
@@ -73,22 +77,30 @@ fun RegistrationItem(navController: NavController, modifier: Modifier, ref: Data
             )
 
             Button(onClick = {
+
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(context) { task ->
                         if (task.isSuccessful) {
                             // Sign in success, update UI with the signed-in user's information
-                            navController.navigate(Screen.MainScreen.route) {
-                                popUpTo(Screen.MainScreen.route) {
+                            Log.d(TAG, "createUserWithEmail:success")
+                            val user = auth.currentUser
+
+                            myRef.child(user!!.uid).child("email").setValue(email)
+                            myRef.child(user!!.uid).child("password").setValue(password)
+
+                            navController.navigate(Screen.MainScreen.route){
+                                popUpTo(Screen.MainScreen.route){
                                     inclusive = true
                                 }
                             }
-                            val user = auth.currentUser
 
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.exception)
                         }
                     }
+
+
             }, colors = ButtonDefaults.buttonColors(GreenGray), modifier = Modifier.width(320.dp)) {
                 Text(
                     text = "Регистрация",

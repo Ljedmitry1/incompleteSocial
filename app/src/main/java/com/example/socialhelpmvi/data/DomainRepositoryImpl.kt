@@ -1,17 +1,15 @@
-package com.example.socialhelpmvi.di.data
+package com.example.socialhelpmvi.data
 
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
-import android.os.Build
-import android.os.Bundle
-import androidx.annotation.RequiresApi
+import androidx.compose.runtime.sourceInformation
 import com.example.socialhelpmvi.domain.model.ProblemModel
 import com.example.socialhelpmvi.domain.repository.DomainRepository
 import com.example.socialhelpmvi.presentation.MainActivity
 import javax.inject.Inject
 
-class DomainRepositoryImpl @Inject constructor(): DomainRepository{
+class DomainRepositoryImpl @Inject constructor() : DomainRepository {
 
     val connect: MainActivity
         get() {
@@ -22,11 +20,11 @@ class DomainRepositoryImpl @Inject constructor(): DomainRepository{
         val connectivityManager: ConnectivityManager =
             connect.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activateNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
-        val isConnected: Boolean = activateNetwork?.isConnectedOrConnecting == true
-
+        //val isConnected: Boolean = activateNetwork?.isConnectedOrConnecting == true
+        val isConnected = true
         val list: List<ProblemModel>
 
-        if (isConnected){
+        if (isConnected) {
             list = listOf(
                 ProblemModel(
                     "Продукты",
@@ -50,8 +48,9 @@ class DomainRepositoryImpl @Inject constructor(): DomainRepository{
                 )
             )
 
-        }else{
+        } else {
             list = emptyList()
+            println(" Empty list ")
         }
 
         return list
