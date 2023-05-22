@@ -50,28 +50,34 @@ fun RegistrationItem(navController: NavController, modifier: Modifier, ref: Data
             OutlinedTextField(
                 value = login,
                 onValueChange = { login = it },
+                label = { Text(text = "Логин")},
                 colors = TextFieldDefaults.textFieldColors(
                     GreenGray,
                     focusedIndicatorColor = GreenGray,
-                    containerColor = Color.Transparent
+                    containerColor = Color.Transparent,
+                    focusedLabelColor = GreenGray
                 )
             )
             OutlinedTextField(
                 value = email,
                 onValueChange = { email = it },
+                label = { Text(text = "Почта")},
                 colors = TextFieldDefaults.textFieldColors(
                     GreenGray,
                     focusedIndicatorColor = GreenGray,
-                    containerColor = Color.Transparent
+                    containerColor = Color.Transparent,
+                    focusedLabelColor = GreenGray
                 )
             )
             OutlinedTextField(
                 value = password,
                 onValueChange = { password = it },
+                label = { Text(text = "Пароль")},
                 colors = TextFieldDefaults.textFieldColors(
                     GreenGray,
                     focusedIndicatorColor = GreenGray,
-                    containerColor = Color.Transparent
+                    containerColor = Color.Transparent,
+                    focusedLabelColor = GreenGray
                 ),
                 visualTransformation = PasswordVisualTransformation()
             )

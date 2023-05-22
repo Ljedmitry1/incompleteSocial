@@ -21,7 +21,7 @@ sealed class Screen(val route: String){
 fun SetupNavGraph(navController: NavHostController, ref: DatabaseReference, auth: FirebaseAuth, context: Activity) {
     NavHost(navController = navController, startDestination = Screen.LoginScreen.route){
         composable(Screen.LoginScreen.route){
-            LoginScreen(navController)
+            LoginScreen(navController, auth, context)
         }
         composable(Screen.RegistrationScreen.route){
             RegistrationScreen(navController, ref, auth, context)
