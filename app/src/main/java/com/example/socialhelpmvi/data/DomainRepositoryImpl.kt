@@ -28,7 +28,7 @@ class DomainRepositoryImpl @Inject constructor() : DomainRepository {
             list = listOf(
                 ProblemModel(
                     "Продукты",
-                    "Наши волонтеры донесут продукты прямо из магазина к вам на адрес",
+                    "Пппппродддуктттттты",
                     "Нормально"
                 ),
                 ProblemModel(
@@ -45,6 +45,21 @@ class DomainRepositoryImpl @Inject constructor() : DomainRepository {
                     "Камчатка",
                     "В",
                     "Легко"
+                ),
+                ProblemModel(
+                    "Бам бам бам бам",
+                    "мы стреляем",
+                    "ОЧ ЛЕГКО, ЛЕГЧАЙШАЯ"
+                ),
+                ProblemModel(
+                    "Другое",
+                    "Вторник",
+                    "Трудно"
+                ),
+                ProblemModel(
+                    "Теливизор",
+                    "Метро",
+                    "Нетрудно, но можно как-то постараться"
                 )
             )
 
